@@ -1,16 +1,19 @@
 package com.throughyears.controller;
 
+import java.security.Principal;
+import java.util.LinkedHashMap;
 import javax.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.oauth2.common.OAuth2AccessToken;
+import org.springframework.security.oauth2.provider.OAuth2Authentication;
 import org.springframework.security.oauth2.provider.token.TokenStore;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 public class DashboardController {
@@ -20,7 +23,8 @@ public class DashboardController {
 
 
     @GetMapping("/home")
-    public String dashboard(HttpServletRequest request, ModelAndView model) {
+    public String dashboard(HttpServletRequest request, Model model, OAuth2Authentication principal) {
+        model.addAttribute("firstname", ((LinkedHashMap) principal.getUserAuthentication().getDetails()).get("given_name"));
         return "dashboard";
     }
 

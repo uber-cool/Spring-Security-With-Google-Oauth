@@ -14,8 +14,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
 public class LoginController {
 
   @GetMapping("/logoutuser")
+  @ResponseBody
   public String logout(){
-    return "logout";
+    return "Logged out success <br><a href=\"/home\">Login Again</a>";
   }
 
 

@@ -1,4 +1,15 @@
-User Dashboard
-<a href="/user">User Profile</a>
-<br>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
 <a href="/logout">Sign out</a>
+
+<div class="container">
+
+  <div class="starter-template">
+    <h2>User Dashboard</h2>
+    <h3>
+      <span th:text="'Welcome: ' + ${firstname}"></span>
+    </h3>
+  </div>
+
+</div>
+<!-- /.container -->
