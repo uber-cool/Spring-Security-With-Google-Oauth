@@ -1,0 +1,30 @@
+server:
+  port: 8080
+
+security:
+    oauth2:
+        client:
+            clientId: 700990755947-9mrdlvtt1t1rgdfam0s23kl2gpinrfo9.apps.googleusercontent.com
+            clientSecret: ${google.client-secret}
+            accessTokenUri: https://www.googleapis.com/oauth2/v3/token
+            userAuthorizationUri: https://accounts.google.com/o/oauth2/auth
+            tokenName: oauth_token
+            authenticationScheme: query
+            clientAuthenticationScheme: form
+            scope:
+              - openid
+              - profile
+              - email
+        resource:
+            userInfoUri: https://www.googleapis.com/userinfo/v2/me
+            preferTokenInfo: false
+    ignored:
+        /swagger-ui.html
+
+#logging:
+#  level:
+#    root: DEBUG
+
+spring:
+  profiles:
+    active: "prod"
