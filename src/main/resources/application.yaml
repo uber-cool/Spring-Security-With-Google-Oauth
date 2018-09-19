@@ -21,9 +21,9 @@ security:
     ignored:
         /swagger-ui.html
 
-#logging:
-#  level:
-#    root: DEBUG
+logging:
+  level:
+    com.throughyears: DEBUG
 
 spring:
   profiles:

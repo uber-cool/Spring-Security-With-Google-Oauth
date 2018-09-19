@@ -1,15 +1,29 @@
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymelef.org" xmlns:sec="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="UTF-8"/>
+  <title>OAuthSample</title>
 
-<a href="/logout">Sign out</a>
+  <link href="http://cdn.jsdelivr.net/webjars/bootstrap/3.3.4/css/bootstrap.min.css"
+        th:href="@{/webjars/bootstrap/3.3.7/css/bootstrap.min.css}"
+        rel="stylesheet" media="screen" />
 
+  <link href="../static/css/basic.css"
+        th:href="@{/css/basic.css}" rel="stylesheet" media="screen"/>
+</head>
+<body>
 <div class="container">
+  <div class="row">
+    <div class="col-sm-12 text-center">
+      <img class="resize img-circle" th:src="${principal.userAuthentication.details.picture}"/>
+      <h3 th:text="'Welcome: ' + ${principal.userAuthentication.details.name}"></h3>
+      <h4 th:text="'Email: ' + ${principal.userAuthentication.details.email}"></h4>
+      <form th:action="@{/logout}" method="post">
+        <button type="submit" class="btn btn-success">Logout</button>
+      </form>
 
-  <div class="starter-template">
-    <h2>User Dashboard</h2>
-    <h3>
-      <span th:text="'Welcome: ' + ${firstname}"></span>
-    </h3>
+    </div>
   </div>
-
 </div>
-<!-- /.container -->
+</body>
+</html>
