@@ -24,7 +24,7 @@ public class DashboardController {
 
     @GetMapping("/home")
     public String dashboard(HttpServletRequest request, Model model, OAuth2Authentication principal) {
-        model.addAttribute("principal", principal);
+        model.addAttribute("userdetails", principal.getUserAuthentication().getDetails());
         log.debug("User details: {}", principal.getUserAuthentication().getDetails());
         return "dashboard";
     }

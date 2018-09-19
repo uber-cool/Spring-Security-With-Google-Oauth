@@ -15,6 +15,7 @@ security:
               - openid
               - profile
               - email
+              - https://www.googleapis.com/auth/drive
         resource:
             userInfoUri: https://www.googleapis.com/userinfo/v2/me
             preferTokenInfo: false

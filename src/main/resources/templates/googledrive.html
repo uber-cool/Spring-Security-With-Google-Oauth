@@ -15,7 +15,6 @@
 <div class="container">
   <div class="row">
     <div class="col-sm-12 text-center">
-      <img class="resize img-circle" th:src="${userdetails.picture}"/>
       <h3 th:text="'Welcome: ' + ${userdetails.name}"></h3>
       <h4 th:text="'Email: ' + ${userdetails.email}"></h4>
       <form th:action="@{/logout}" method="post">
